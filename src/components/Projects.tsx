@@ -1,4 +1,5 @@
 import SectionWrapper from './SectionWrapper';
+import { Link } from 'react-router-dom';
 
 interface WorkItem {
   title: string;
@@ -43,11 +44,19 @@ const Projects = () => {
             </div>
             <div className="flex-1 space-y-2">
               {item.link ? (
-                <a href={item.link}>
-                  <h3 className="text-sm sm:text-base font-semibold text-slate-900 hover:text-blue-600 hover:underline cursor-pointer">
-                    {item.title}
-                  </h3>
-                </a>
+                item.link.startsWith('http') ? (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <h3 className="text-sm sm:text-base font-semibold text-slate-900 hover:text-blue-600 hover:underline cursor-pointer">
+                      {item.title}
+                    </h3>
+                  </a>
+                ) : (
+                  <Link to={item.link}>
+                    <h3 className="text-sm sm:text-base font-semibold text-slate-900 hover:text-blue-600 hover:underline cursor-pointer">
+                      {item.title}
+                    </h3>
+                  </Link>
+                )
               ) : (
                 <h3 className="text-sm sm:text-base font-semibold text-slate-900">
                   {item.title}

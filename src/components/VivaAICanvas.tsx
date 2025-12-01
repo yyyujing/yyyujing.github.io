@@ -1,4 +1,5 @@
 import SectionWrapper from './SectionWrapper';
+import { Link } from 'react-router-dom';
 
 const VivaAICanvas = () => {
   return (
@@ -7,12 +8,12 @@ const VivaAICanvas = () => {
         <div className="max-w-4xl mx-auto space-y-12 py-8">
           {/* Back to Projects Link */}
           <div className="pb-4">
-            <a
-              href="/#projects"
+            <Link
+              to="/"
               className="text-blue-600 hover:text-blue-700 hover:underline text-base sm:text-lg"
             >
               ← Back to Projects
-            </a>
+            </Link>
           </div>
 
           {/* Page Title */}
